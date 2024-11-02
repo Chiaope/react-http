@@ -1,3 +1,12 @@
+export async function initPlaces() {
+    const response = await fetch('http://localhost:3000/user-places')
+    if (!response.ok) {
+      throw new Error('Something wrong with initalising places!')
+    }
+    const jsonData = await response.json()
+    return jsonData.places
+}
+
 export async function fetchPlaces() {
     const response = await fetch('http://localhost:3000/places')
     if (!response.ok) {
